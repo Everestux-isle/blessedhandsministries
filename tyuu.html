@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blessed Hands Ministries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1A2B4C;
+    --navy-deep: #101A30;
+    --cream: #FAF6EE;
+    --cream-dim: #F1EADA;
+    --gold: #C99A3E;
+    --gold-soft: #E8D3A0;
+    --sage: #6E8B6A;
+    --ink: #20242C;
+    --ink-soft: rgba(32,36,44,0.68);
+    --cream-soft: rgba(250,246,238,0.75);
+    --radius: 18px;
+    --max: 1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  img,svg{display:block;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(26,43,76,0.92);
+    backdrop-filter:blur(8px);
+    color:var(--cream);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--max); margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600;
+    color:var(--cream);
+    text-decoration:none;
+  }
+  .brand img{
+    width:36px;height:36px;
+    border-radius:50%;
+    object-fit:cover;
+    background:var(--cream);
+  }
+  nav.links{display:flex; gap:32px; align-items:center;}
+  nav.links a{
+    text-decoration:none; font-size:0.92rem; font-weight:500;
+    color:var(--cream-soft);
+    transition:color .2s ease;
+  }
+  nav.links a:hover{color:var(--gold-soft);}
+  .btn-give{
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.9rem;
+    text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-give:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(201,154,62,0.35);}
+  .menu-toggle{display:none; background:none; border:none; color:var(--cream); cursor:pointer;}
+
+  /* ---------- Marquee ---------- */
+  .marquee-band{
+    background:var(--gold);
+    color:var(--navy-deep);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid rgba(16,26,48,0.15);
+    border-top:1px solid rgba(16,26,48,0.15);
+  }
+  .marquee-track{
+    display:inline-flex;
+    animation: scroll-left 32s linear infinite;
+    padding:10px 0;
+  }
+  .marquee-track span{
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    padding:0 28px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .marquee-track span::after{
+    content:"✦";
+    margin-left:28px;
+    opacity:0.55;
+  }
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+    gap:40px;
+    padding-top:96px;
+    padding-bottom:96px;
+    position:relative;
+    z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+    line-height:1.08;
+    margin-top:14px;
+    color:var(--cream);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold-soft);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:1.08rem;
+
+Rotich, [7/15/2026 1:02 AM]
+line-height:1.65;
+    color:var(--cream-soft);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    font-size:0.96rem;
+    transition:transform .2s ease, box-shadow .2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(201,154,62,0.3);}
+  .btn-ghost{
+    border:1.5px solid rgba(250,246,238,0.4);
+    color:var(--cream);
+    padding:13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:0.96rem;
+    transition:background .2s ease, border-color .2s ease;
+    display:inline-block;
+  }
+  .btn-ghost:hover{background:rgba(250,246,238,0.08); border-color:var(--gold-soft);}
+
+  .hands-signature{
+    width:100%;
+    max-width:420px;
+    justify-self:center;
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .hands-signature img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* ---------- Divider ---------- */
+  .motif-divider{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    padding:36px 0 0;
+  }
+  .motif-divider .line{height:1px; width:80px; background:currentColor; opacity:0.25;}
+  .motif-divider svg{width:20px;height:20px; opacity:0.6;}
+
+  /* ---------- Section shared ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-top:10px; line-height:1.2;}
+  .section-head p{margin-top:16px; color:var(--ink-soft); font-size:1.02rem; line-height:1.6;}
+  .reveal{
+    opacity:0; transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- About / pillars ---------- */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .pillar-card{
+    background:var(--cream-dim);
+    border-radius:var(--radius);
+    padding:32px 26px;
+    border:1px solid rgba(32,36,44,0.06);
+  }
+  .pillar-card svg{width:34px; height:34px; color:var(--sage); margin-bottom:18px;}
+  .pillar-card h3{font-size:1.15rem; font-weight:600;}
+  .pillar-card p{margin-top:10px; color:var(--ink-soft); font-size:0.96rem; line-height:1.55;}
+
+  /* ---------- Ministries ---------- */
+  .ministries-section{
+    background:var(--navy);
+    color:var(--cream);
+  }
+  .ministries-section .eyebrow{color:var(--gold-soft);}
+  .ministries-section .section-head p{color:var(--cream-soft);}
+  .ministry-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .ministry-card{
+    background:rgba(250,246,238,0.05);
+    border:1px solid rgba(250,246,238,0.12);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .ministry-card:hover{background:rgba(250,246,238,0.09); transform:translateY(-4px);}
+  .ministry-card .tag{
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold-soft); font-weight:600;
+  }
+  .ministry-card h3{font-size:1.08rem; margin-top:10px; font-weight:600; color:var(--cream);}
+  .ministry-card p{margin-top:8px; font-size:0.9rem; color:var(--cream-soft); line-height:1.5;}
+
+  /* ---------- Donate ---------- */
+  .donate-section{
+    background:var(--gold-soft);
+    position:relative;
+    overflow:hidden;
+  }
+  .donate-card{
+    background:var(--cream);
+    border-radius:24px;
+    padding:48px;
+    max-width:720px;
+    margin:0 auto;
+    box-shadow:0 30px 60px -25px rgba(26,43,76,0.35);
+  }
+  .donate-card .section-head{margin-bottom:32px; max-width:none;}
+  .give-toggle{
+    display:inline-flex;
+    background:var(--cream-dim);
+    border-radius:999px;
+    padding:4px;
+    margin-bottom:26px;
+  }
+  .give-toggle button{
+    border:none; background:none; cursor:pointer;
+
+Rotich, [7/15/2026 1:02 AM]
+padding:10px 22px; border-radius:999px;
+    font-weight:600; font-size:0.9rem;
+    color:var(--ink-soft);
+    transition:background .2s ease, color .2s ease;
+  }
+  .give-toggle button.active{
+    background:var(--navy); color:var(--cream);
+  }
+  .amount-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .amount-chip{
+    border:1.5px solid rgba(32,36,44,0.14);
+    background:var(--cream);
+    border-radius:14px;
+    padding:16px 10px;
+    text-align:center;
+    font-weight:700;
+    font-size:1.05rem;
+    cursor:pointer;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .amount-chip:hover{border-color:var(--gold);}
+  .amount-chip.selected{
+    border-color:var(--navy);
+    background:var(--navy);
+    color:var(--cream);
+  }
+  .give-note{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-top:16px;
+    line-height:1.5;
+  }
+  .btn-give-full{
+    width:100%;
+    background:var(--navy);
+    color:var(--cream);
+    border:none;
+    padding:17px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:1rem;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn-give-full:hover{background:var(--navy-deep); transform:translateY(-2px);}
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    background:var(--navy-deep);
+    color:var(--cream-soft);
+    padding-top:64px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.8fr 0.8fr 1fr;
+    gap:32px;
+    padding-bottom:44px;
+    border-bottom:1px solid rgba(250,246,238,0.1);
+  }
+  .footer-brand{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .footer-brand img{
+    width:32px;height:32px;
+    border-radius:50%;
+    object-fit:cover;
+    background:var(--cream);
+  }
+  .footer-brand span{font-family:'Fraunces',serif; font-size:1.1rem; color:var(--cream); font-weight:600;}
+  .footer-grid p{font-size:0.9rem; line-height:1.6; color:var(--cream-soft); max-width:32ch;}
+  .footer-col h4{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--gold-soft); margin-bottom:16px; font-weight:600;
+  }
+  .footer-col ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{font-size:0.92rem; text-decoration:none; color:var(--cream-soft); transition:color .2s ease;}
+  .footer-col a:hover{color:var(--gold-soft);}
+  .social-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .social-row a{
+    width:40px; height:40px;
+    border-radius:50%;
+    border:1px solid rgba(250,246,238,0.18);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .social-row a:hover{background:var(--gold); border-color:var(--gold); transform:translateY(-3px);}
+  .social-row svg{width:18px;height:18px; color:var(--cream);}
+  .social-row a:hover svg{color:var(--navy-deep);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 0 32px;
+    font-size:0.82rem;
+    color:rgba(250,246,238,0.5);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr; padding-top:56px; padding-bottom:56px;}
+    .hands-signature{max-width:280px; order:-1;}
+    .pillars{grid-template-columns:1fr;}
+    .ministry-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr; gap:28px;}
+    .donate-card{padding:32px 22px;}
+    .amount-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width: 520px){
+    .ministry-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .marquee-track{animation:none;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  :focus-visible{
+    outline:2.5px solid var(--gold);
+    outline-offset:3px;
+  }
+
+
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site">
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <img src="IMG-20260713-WA0003.jpg" alt="Blessed Hands Ministries logo"width="90">
+      Blessed Hands Ministries
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#ministries">Ministries</a>
+      <a href="#donate">Give</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#donate" class="btn-give">Give Now</a>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-band" role="region" aria-label="Announcements">
+  <div class="marquee-track">
+    <span>Outreaches to street kids every Wednesday</span>
+    <span>Free Community Meals Every Saturday</span>
+    <span>Educating orphans and homeless kids</span>
+    <span>New Members Welcome Every Day</span>
+    <span>Free street Meals Every Saturday</span>
+    <span>New Members Welcome Every Week</span>
+    <span>Sunday Bible Study</span>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Blessed Hands Ministries</p>
+      <h1>Hands that bless.<br><em>A community that grows.</em></h1>
+      <p class="lead">Every child has a story. Some have known hunger, loss, and loneliness. At Blessed Hands Ministries, we believe every child deserves love, hope, and a future. Through God's grace and the kindness of people like you, we are restoring smiles and changing lives—one child at a time..</p>
+      <div class="hero-ctas">
+        <a href="#ministries" class="btn-primary">Join Us as we save the commuinty</a>
+        <a href="#donate" class="btn-ghost">Give Today</a>
+      </div>
+    </div>
+    <div class="hands-signature">
+      <img src="20260315_152103.jpg" alt="Blessed Hands Ministries serving the community">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head ">
+      <p class="eyebrow">About us</p>
+      <h2>Our mission</h2>
+      <p>
+             Faith in action, hope for every child.
+             Blessed Hands Ministries exists to share the love of Jesus Christ by caring for vulnerable children, strengthening families, and serving our community with compassion. Through faith, love, education, prayer, and practical support, we strive to restore hope, transform lives, and remind every child that they are deeply loved, valued, and never forgotten.</p>
+
+             <h1>Our vision</h1>
+             <p>
+A future where every child is loved, every family has hope, and every life reflects God's love.
+We envision a world where no child is left behind because of poverty, hunger, or hardship. Our dream is to raise generations of children who grow in faith, receive education, discover their God-given purpose, and become leaders who bring positive change to their communities. Together, with God's guidance and the kindness of people around the world, we believe every helping hand can change a life forever.</p>
+                <h1>About us</h1>
+                <p>
+
+My name is <strong><b>Rotich Hillary</b></strong>, and I am the founder of this ministry. On <strong><b>February 20, 2024, God placed a burden on my heart that I could no longer ignore. I looked into the eyes of children who had been forgotten—children who lacked food, love, education, and hope. I knew I couldn't change the whole world, but I believed I could change the world for at least one child.
+
+Our ministry began with just 7 children. We had very little, but we had faith, compassion, and a heart determined to serve. Every meal shared, every smile restored, and every prayer lifted reminded us that love can accomplish what money alone cannot.
+
+Today, by God's grace, our family has grown to 40 children. Behind every child is a story of pain, loss, and struggle—but also a story of hope. Every child deserves to feel loved, protected, and valued. Every child deserves the chance to dream again.
+
+Yet, there are still so many children waiting. Every day we meet young lives crying out for help, but our resources are limited. It breaks our hearts to know that we cannot reach every child who needs us.
+
+Our dream is not to stop at 40 children. We are praying and believing that one day we will reach hundreds of children, providing them with food, education, clothing, medical care, and, most importantly, the love and hope they deserve.
+
+To everyone who supports this mission, you are not simply making a donation—you are becoming part of a child's story. You are helping turn tears into smiles, hunger into hope, loneliness into love, and fear into a brighter future.
+
+Together, we can remind every child that they are not forgotten, that they are deeply loved, and that their future is worth fighting for.
+
+One act of kindness can change a life. One caring heart can change a generation.</p>
+    <div class="pillars">
+      <div class="pillar-card ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6M12 21v-6M5 12H3M21 12h-2M7 7l-1.5-1.5M17 17l1.5 1.5M7 17l-1.5 1.5M17 7l1.5-1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2"/></svg>
+        <h3>❤️Child Care</h3>
+        <p>Providing love, protection, and hope to vulnerable children so they grow in a safe and caring environment.</p>
+        <h4><b>🤝community 🤜support</b></h4>
+        <p>supporting struggling families with food, clothes, school supplies and ecouragement during difficult times.</p>
+        <h4><b>🌱 Empowerment</b></h4>
+        <p>Creating opportunities throungh Education, life skills, and mentorship so children can build a brighter future.</p>
+      </div>
+      <div class="pillar-card ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke-linecap="round"/></svg>
+        <h3>❤️Community</h3>
+        <h4><b>🍚Food and Nutrition</b></h4>
+        <p>Ensuring no child goes hungry by providing nutritious meals and emergency food support.</p>
+        <img src="20260523_140421.jpg" alt="nutritious meal"width="200">
+        <h4><b>📚 Education</b></h4>
+        <p>Helping children stay in school through paying school fees, school supplies, uniforms, and education support.</p>
+        <h4><b>💙Love and Care</b></h4>
+        <p>Giving every child the care, diginty, and hope they deserve regardless of their backgrounds.</p>
+      </div>
+      <div class="pillar-card ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-9.5-8.8C.9 8.6 2.6 5 6 5c2 0 3.5 1.1 4 2.6.5-1.5 2-2.6 4-2.6 3.4 0 5.1 3.6 3.5 7.2C19 16.6 12 21 12 21z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>❤️‍🩹Blessed hands ministries</h3>
+        <h4><b>🙏Faith</b></h4>
+        <p>Sharing God`s love, kindness and compassionate through prayer service to every child.</p>
+        <h4><b>🧑‍🦰Child protection</b></h4>
+        <p>Providing a safe shelter, and support for childern and neigbours walking through hard seasons, loving environment where vulnerable childern can learn, grow, and dream.</p>
+        <h4><b>🤲Compassion</b></h4>
+        <p>Reaching families with food and hope when they need it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="motif-divider">
+  <div class="line"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="#C99A3E" stroke-width="1.6"><path d="M4 13C4 13 5.5 8 8 8c2 0 2 2.4 2 3.2M20 13c0 0-1.5-5-4-5-2 0-2 2.4-2 3.2M4 13c0 4 3.6 6.5 8 6.5s8-2.5 8-6.5" stroke-linecap="round"/></svg>
+  <div class="line"></div>
+</div>
+
+<!--
+
+
+================= MINISTRIES ================= -->
+<section id="ministries" class="ministries-section">
+  <!div class="wrap">
+    <div class="section-head ">
+      <p class="eyebrow">Get Involved</p>
+      <h2>Ministries & programs</h2>
+      <p>However you're wired to serve, there's a place for you here — for every age and every season of life.</p>
+    </div>
+    <!div class="ministry-card">
+    <!img src="20260523_140414.jpg" alt="Description" style="width:100%; border-radius: 8px;"width="50">
+    
+    
+    <!h3>Community Meals</h3>
+
+<!/div>
+    <div class="ministry-grid">
+      <div class="ministry-card ">
+          <img src="20260403_114238.jpg" alt="Description of ministry" style="width:100%; border-radius: 8px;">
+        <p class="tag">Daily</p>
+        <h3>Children at the ministry</h3>
+        <p>Blessed Hands started with 10 children but because of faith our ministry it has grown to 40 children.</p>
+      </div>
+      <div class="ministry-card ">
+        <img src="20260523_140414.jpg" alt="Description" style="width:100%; border-radius: 8px;"width="50">
+        <p class="tag">Outreach</p>
+        <h3>Community Meals</h3>
+        <p>Free meals and support for neighbors every Saturday afternoon.</p>
+      </div>
+      
+<div class="ministry-card">
+    <img src="20260403_114702.jpg" alt="Description of ministry" style="width:100%; border-radius: 8px;">
+    <p class="tag">Youth & Kids</p>
+    <h3>Next Generation</h3>
+    <p>Safe, joyful spaces where kids and teens grow in their faith.</p>
+</div>
+  <div class="ministry-card ">
+        <p class="tag">Global</p>
+        <h3>Supponsers and friends Abroad</h3>
+        <p><strong><b>Aaron, Patrick .</b></strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DONATE ================= -->
+<section id="donate" class="donate-section">
+  <div class="wrap">
+    <div class="donate-card ">
+      
+      <div class="section-head">
+        <p class="eyebrow">Give</p>
+        <h2>Every gift is a hand extended</h2>
+       
+        <p>Your generosity feeds families, funds outreach, and keeps our doors open to anyone seeking hope.</p>
+        
+      </div>
+
+      <div class="donation-info" style="padding: 20px; text-align: left; line-height: 2;">
+    <h3 style="text-align: center;">Support Our Mission</h3>
+    <p>Please use the following details to send your donation via Mobile Money or Remitly:</p>
+    <ul style="list-style-type: none; padding: 0;">
+        <li>🔹 <strong>Recipient Name:</strong> Rotich Hillary</li>
+        <li>🔹 <strong>Mobile Money Number:</strong> +256744738859</li>
+        <li>🔹 <strong>Mobile Money Provider:</strong> Airtel Uganda</li>
+        <li>🔹 <strong>Country:</strong> Uganda</li>
+        <li>✅ <strong>Delivery Method:</strong> Mobile Money</li>
+        <li>🌐 <strong>Transfer Service:</strong> Remitly</a></li>
+    </ul>
+</div>
+      <a href="https://www.remitly.com" target="_blank" class="btn-give-full" style="text-decoration: none; display: block; text-align: center; line-height: 50px;">Donate via Remitly</a>
+      <p class="give-note">Blessed Hands Ministries is a faith-based, community-supported organization. Every gift goes directly toward meals, outreach, and care for our children.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="IMG-20260713-WA0003.jpg" alt="Blessed Hands Ministries logo">
+          <span>Blessed Hands Ministries</span>
+        </div>
+        <p>Hands that bless.<br><em>A community that grows.</em>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#ministries">Ministries</a></li>
+          <li><a href="#donate">Give</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#">Service Times</a></li>
+          <li><a href="#">Our Location</a></li>
+          <li><a href="blessedhands257@gmail.com">Contact Us</a></li>
+           <!li><!a href="https://was.me/=256707116286"><!img src="New folder (6)\WAS.jpg"width="40">whatsapp me</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along on our platforms bellow</h4>
+        <div class="social-row">
+          <a href="https://www.instagram.com/roti.chhillary?igsh=MTc0ZmV5dXZmZ3dkNg==" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          </a>
+          <a href=" https://www.facebook.com/share/1J5FgVaRe8/" aria-label="Facebook">
+
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>
+          </a>
+          <a href="https://youtube.com/@blessedhandministries?si=mZhGrUFq5rFFXRqS" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://tiktok.com/@blessed.hand.ministries" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5c.3 0 .6 0 1 .1" stroke-linecap="round"/><path d="M14 4c.5 2.2 2.2 3.8 4.5 4" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://x.com/blessedhands103" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 5l14 14M19 5L5 19" stroke-linecap="round"/></svg>
+          </a>
+           <!a herf="https://www.remitly.com"><!img src="remitly.pjg.PNG"width="30"></a>
+         <!a herf="Jesusguidesme16@gmail.com"><!img src="paypal.jpg"width="20"></a>
+          
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Blessed Hands Ministries. All rights reserved.</span>
+      <span>Made with faith, hope, and open hands.</span>
+      <ul>
+      <li><a href="https://wa.me/256707116286"> 💻restuxmods</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Donate interactions
+  const freqButtons = document.querySelectorAll('.give-toggle button');
+  const amountChips = document.querySelectorAll('.amount-chip');
+  const giveBtn = document.getElementById('giveBtn');
+  let currentFreq = 'once';
+  let currentAmount = 50;
+
+  function updateGiveBtn(){
+    const label = currentAmount > 0 ? $${currentAmount} : 'a gift';
+    giveBtn.textContent = currentFreq === 'once' ? Give ${label} once : Give ${label} monthly;
+  }
+
+  freqButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      freqButtons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFreq = btn.dataset.freq;
+      updateGiveBtn();
+    });
+  });
+
+  amountChips.forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      amountChips.forEach(c=>c.classList.remove('selected'));
+      chip.classList.add('selected');
+      currentAmount = parseInt(chip.dataset.amount, 10);
+      updateGiveBtn();
+    });
+  });
+
+  updateGiveBtn();
+</script>
+
+</body>
+</html>
